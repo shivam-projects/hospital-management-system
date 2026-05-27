@@ -7,6 +7,10 @@ const app = express();
 const PORT = Number(process.env.PORT) || 5001;
 import runMigrations from "./database/runMigrations";
 import userRoutes from './routes/users';
+import roleRoutes from './routes/roles'
+import departmentRoutes from "./routes/departments";
+import doctorRoutes from "./routes/doctors";
+
 
 // Middlewares
 app.use(cors());
@@ -31,3 +35,9 @@ startServer();
 
 
 app.use('/users', userRoutes)
+
+app.use("/roles", roleRoutes);
+
+app.use("/departments", departmentRoutes);
+
+app.use("/doctors", doctorRoutes);
